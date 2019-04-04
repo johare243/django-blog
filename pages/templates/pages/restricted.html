@@ -1,0 +1,10 @@
+{% extends 'pages/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+    Restricted
+{% endblock %}
+
+{% block body_block %}
+        <p>This is the restricted page {{ user.username }}!</p>
+{% endblock %}

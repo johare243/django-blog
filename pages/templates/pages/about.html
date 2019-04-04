@@ -1,0 +1,14 @@
+{% extends 'pages/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+        About Page
+{% endblock %}
+
+{% block body_block %}
+<div>
+    <p>You have visited this page:: {{ visits }} times!</p>
+  <p><strong>{{ boldmessage }}</strong></p>
+  <img src="{% static "images/hare.jpg" %}" alt="Pic of a hare">
+</div>
+{% endblock %}

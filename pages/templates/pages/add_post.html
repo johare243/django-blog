@@ -1,0 +1,33 @@
+{% extends 'pages/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+    Add Post for {{category.name}} category
+{% endblock %}
+
+{% block body_block %}
+<h1>Add a post</h1>
+<div>
+    
+    {% if user.is_authenticated %}
+        {% if category %}
+        <form id='post_form' action="/pages/category/{{ category.slug }}/add_post/" method="post" accept-charset="utf-8">
+                    {% csrf_token %} 
+                    {% for hidden in form.hidden_fields %} 
+                      {{ hidden }}
+                    {% endfor %} 
+                    {% for field in form.visible_fields %} 
+                      {{ field.errors }}
+                      {{ field.help_text }}
+                      {{ field }}
+                    {% endfor %} 
+                    <input type="submit" value="Create Post" name="submit" id="submit"/>
+            </form>
+                {% else %}
+                    This category does not exist
+        {% endif %}
+    {% else %}
+        <p>Sign in to add a post to this category</p>
+    {% endif %}
+</div>
+{% endblock %}

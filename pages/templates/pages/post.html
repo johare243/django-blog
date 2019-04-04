@@ -1,0 +1,19 @@
+{% extends 'pages/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+    <!-- {{category.name}} -->
+{% endblock %}
+
+{% block header_block  %}
+{% endblock  %}
+{% block body_block %}
+        <div class="cat-div">
+        {% if post %}
+        <h1>{{ post.title }}</h1>
+        <h4>{{ post.text }}</h4>
+        {% else %}
+                    <p>Sign in to add a category</p>
+        {% endif %}
+        </div>
+{% endblock %}

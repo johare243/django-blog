@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+{% load pages_template_tags %}
+<html lang="en">
+<head>
+        {% block title_block %}
+        <title> 
+                Welcome
+        </title>
+        {% endblock %}
+<meta http-equiv="content-type" content="text/html; charset=utf-8" >
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+<link rel="stylesheet" href="{% static 'pages/style.css'  %}" type="text/css" charset="utf-8">
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> 
+
+
+</head>
+<body>
+    <nav class="top-nav">
+            {% if user.is_authenticated %}
+                Hello, {{ user.username }}
+                    <li class="top-nav-li"><a href="{% url 'logout' %}">Logout</a></li>
+                    <li class="top-nav-li"><a href="{% url 'restricted' %}">Restricted</a></li>
+            {% else %}
+                    <li class="top-nav-li"><a href="{% url 'login' %}">Login</a></li>
+                    <li class="top-nav-li"><a href="{% url 'register' %}">Register</a></li>
+            {% endif %}
+    </nav>
+    {% block header_block  %}
+        <header class="header">
+                <div class="logo-box">
+                        <img class="logo" src="{% static 'images/logo-white.png' %}" alt=""/>
+                </div>
+                <div class="text-box">
+                        <h1 class="heading-primary">
+                                <span class="heading-primary-main">Hare IT</span>
+                                <span class="heading-primary-sub">Explore RHEL, Django/Python, and More</span>
+                        </h1>
+                                <a id="header-btn" class='btn btn-white' href="">View Categories</a>
+                </div>
+        </header>
+                {% endblock %}
+        <div id="main">
+                {% block body_block %}
+                    This is the default content.
+                {% endblock %}
+        <hr>
+        </div>
+        <!-- <div id="sidebar"> -->
+        <!--         {% block sidebar_block %} -->
+        <!--                 {% get_category_list category %} -->
+        <!--         {% endblock %} -->
+        <!-- <hr> -->
+        <!-- </div> -->
+        <div id='footer'>
+                <ul class="ul">
+                        {% if user.is_authenticated %}
+                        <li class="li"><a href="{% url 'add_category' %}">Add New Category</a></li>
+                        {% endif %}
+                        <li class="li"><a href="{% url 'about' %}">About</a></li>
+                        <li class="li"><a href="{% url 'index' %}">Index</a></li>
+                </ul>
+        </div>
+        <link rel="stylesheet" href="{% static 'pages/animation.js'  %}" type="text/css" charset="utf-8">
+</body>
+<footer>&copy; 2018 James O'Hare.</footer>
