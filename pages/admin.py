@@ -1,9 +1,9 @@
 from django.contrib import admin
+from markdownx.admin import MarkdownxModelAdmin
 from pages.models import Category, Post, UserProfile
-# from django_markdown.widgets import MarkdownWidget
 
 class PostAdmin(admin.ModelAdmin):
-    fields=['category','title','views','text','post_image','summary']
+    fields=['category','title','views','markdown', 'text','post_image','summary']
 
 class CategoryAdmin(admin.ModelAdmin):
     populated_fields = {'slug':('name',)}

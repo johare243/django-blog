@@ -2,6 +2,7 @@ from django.db import models
 from django.template.defaultfilters import slugify
 from django.contrib.auth.models import User
 from django.utils.timezone import now
+from markdownx.models import MarkdownxField
 
 # Create your models here.
 class Category(models.Model):
@@ -28,9 +29,10 @@ class PostQuerySet(models.QuerySet):
 class Post(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     title = models.CharField(max_length=128)
-    # url = models.URLField()
+    url = models.URLField()
     views = models.IntegerField(default=0)
     text = models.TextField(null=True, blank=True)
+    markdown = MarkdownxField(null=True, blank=True)
     slug = models.SlugField(unique=True)
     summary = models.TextField(null=True, blank=True)
     post_image = models.ImageField(null=True,blank=True)

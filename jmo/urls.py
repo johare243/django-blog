@@ -22,6 +22,6 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('', views.index, name='index'),
     path(r'pages/', include('pages.urls')),
-    # path('django_markdown/', include('django_markdown.urls')),
+    path(r'markdownx/', include('markdownx.urls')),
     path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
