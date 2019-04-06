@@ -8,6 +8,7 @@ from django.contrib.auth import login as auth_login
 from django.urls import reverse
 from pages.models import Category, Post
 from pages.forms import CategoryForm, PostForm, UserForm, UserProfileForm
+from markdownx.utils import markdownify
 #from django.contrib.sessions import session
 
 # Create your views here.

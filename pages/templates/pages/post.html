@@ -1,5 +1,6 @@
 {% extends 'pages/base.html' %}
 {% load staticfiles %}
+{% load pages_template_tags %}
 
 {% block title_block %}
     <!-- {{category.name}} -->
@@ -12,6 +13,9 @@
         {% if post %}
         <h1>{{ post.title }}</h1>
         <h4>{{ post.text }}</h4>
+        {% if post.markdown  %}
+        <p>{{ post.markdown|show_markdown|safe }}</p>
+        {% endif  %}
         {% else %}
                     <p>Post goes here</p>
         {% endif %}

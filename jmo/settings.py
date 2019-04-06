@@ -123,9 +123,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
-# STATICFILES_DIRS = [STATIC_DIR, ]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/markdown/')
+STATICFILES_DIRS = [STATIC_DIR, ]
 STATIC_URL = '/static/'
-STATIC_ROOT = STATIC_DIR
 
 # Media files (Non-static files such as profile picture, etc)
 MEDIA_ROOT = MEDIA_DIR
