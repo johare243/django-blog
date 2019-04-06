@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 {% load staticfiles %}
 {% load pages_template_tags %}
@@ -13,11 +14,6 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
 <link rel="stylesheet" href="{% static 'pages/style.css'  %}" type="text/css" charset="utf-8">
 
-<script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> 
 
 
 </head>
@@ -42,7 +38,7 @@
                                 <span class="heading-primary-main">Hare IT</span>
                                 <span class="heading-primary-sub">Explore RHEL, Django/Python, and More</span>
                         </h1>
-                                <a id="header-btn" class='btn btn-white' href="">View Categories</a>
+                                <a id="header-btn" class='btn btn-white' href="#">View Categories</a>
                 </div>
         </header>
                 {% endblock %}
@@ -67,6 +63,12 @@
                         <li class="li"><a href="{% url 'index' %}">Index</a></li>
                 </ul>
         </div>
-        <link rel="stylesheet" href="{% static 'pages/animation.js'  %}" type="text/css" charset="utf-8">
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> 
+<script src="{% static 'pages/animation.js' %}"></script>
+
 </body>
 <footer>&copy; 2018 James O'Hare.</footer>

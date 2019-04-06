@@ -1,3 +1,4 @@
+
 {% extends 'pages/base.html' %}
 {% load staticfiles %}
 
@@ -16,10 +17,23 @@
                 {% if categories %}
                     <ul class="ul-cat">
                 {% for category in categories %}
-                    <li class="li-cat">
-                    <a href="{% url 'show_category' category.slug %}">
-                        {{ category.name|upper }}</a>
-                    </li>
+                  <div class="flip-card">
+                  <div class="flip-card-inner">
+                          <div class="flip-card-front">
+                            <li class="li-cat">
+                            <a href="{% url 'show_category' category.slug %}">
+                                    <img class="flip-card-bg" src="" alt=""/>
+                                {{ category.name|upper }}</a>
+                            </li>
+                          </div>
+                          <div class="flip-card-back" style="background-image: url('{{ MEDIA_URL }}/{{category.name|lower}}.jpg');">
+                                    <a href="{% url 'show_category' category.slug %}">
+                                            <div>
+                                            </div>
+                                    </a>
+                          </div>
+                  </div>
+                  </div>
                 {% endfor %}
                     </ul>
                 {% endif %}
