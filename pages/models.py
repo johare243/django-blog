@@ -28,7 +28,7 @@ class PostQuerySet(models.QuerySet):
 class Post(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     title = models.CharField(max_length=128)
-    url = models.URLField()
+    # url = models.URLField()
     views = models.IntegerField(default=0)
     text = models.TextField(null=True, blank=True)
     slug = models.SlugField(unique=True)

@@ -26,7 +26,7 @@
                                 {{ category.name|upper }}</a>
                             </li>
                           </div>
-                          <div class="flip-card-back" style="background-image: url('{{ MEDIA_URL }}/{{category.name|lower}}.jpg');">
+                          <div class="flip-card-back" style="background-image: url('{{ MEDIA_URL }}/{{category.slug|lower}}.jpg');">
                                     <a href="{% url 'show_category' category.slug %}">
                                             <div>
                                             </div>

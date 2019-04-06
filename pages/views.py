@@ -54,10 +54,10 @@ def show_category(request, category_name_slug):
 
     return render(request, 'pages/category.html', context_dict)
 
-def show_post(request, post_name_slug):
+def show_post(request, category_name_slug, post_name_slug):
     context_dict = {}
     try:
-        post = Category.objects.get(slug=post_name_slug)
+        post = Post.objects.get(slug=post_name_slug)
         context_dict['post'] = post
     except Category.DoesNotExist:
         context_dict['post'] = None
