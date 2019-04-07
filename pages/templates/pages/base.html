@@ -55,13 +55,35 @@
         <!-- <hr> -->
         <!-- </div> -->
         <div id='footer'>
-                <ul class="ul">
-                        {% if user.is_authenticated %}
-                        <li class="li"><a href="{% url 'add_category' %}">Add New Category</a></li>
-                        {% endif %}
-                        <li class="li"><a href="{% url 'about' %}">About</a></li>
-                        <li class="li"><a href="{% url 'index' %}">Index</a></li>
-                </ul>
+                <div class="footer-logo-box">
+                        <img class="footer-logo" src="{% static 'images/logo-black.png' %}" alt=""> 
+                </div>
+                <div class="footer-nav">
+                        <h2>Navigation</h2>
+                        <ul class="ul footer-ul">
+                                {% if user.is_authenticated %}
+                                <li class="li footer-li"><a href="{% url 'add_category' %}">Add New Category</a></li>
+                                {% endif %}
+                                <li class="li footer-li"><a href="{% url 'index' %}">Index</a></li>
+                                <li class="li footer-li"><a href="{% url 'about' %}">About</a></li>
+                                <li class="li footer-li"><a href="{% url 'about' %}">Links</a></li>
+                        </ul>
+                </div>
+                <div class="footer-other">
+                        <h2>Company</h2>
+                        <ul class="ul footer-ul">
+                                <li class="li footer-li"><a href="{% url 'about' %}">Twitter</a></li>
+                                <li class="li footer-li"><a href="{% url 'about' %}">Facebook</a></li>
+                                <li class="li footer-li"><a href="{% url 'about' %}">LinkedIn</a></li>
+                        </ul>
+                </div>
+                <div class="footer-contact">
+                        <h2>Contact</h2>
+                        <ul class="ul footer-ul">
+                                <li class="li footer-li"><a href="{% url 'index' %}">Phone: (954) 918-2891</a></li>
+                                <li class="li footer-li"><a href="{% url 'about' %}">Email: support@hareit.com</a></li>
+                        </ul>
+                </div>
         </div>
 <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"

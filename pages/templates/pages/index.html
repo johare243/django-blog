@@ -23,13 +23,10 @@
                             <li class="li-cat">
                             <a href="{% url 'show_category' category.slug %}">
                                     <img class="flip-card-bg" src="" alt=""/>
-                                {{ category.name|upper }}</a>
+                                {{ category.name|upper }}
                             </li>
                           </div>
                           <div class="flip-card-back" style="background-image: url('{{ MEDIA_URL }}/{{category.slug|lower}}.jpg');">
-                                    <a href="{% url 'show_category' category.slug %}">
-                                            <div>
-                                            </div>
                                     </a>
                           </div>
                   </div>
@@ -48,7 +45,10 @@
                 <ul class="ul-cat">
                 {% for post in posts %}
                 <li class="li-cat">
-                        <a href="{{ post.url }}">{{ post.title }}</a>
+                        <a href="{{ post.url }}">
+                                <h3>{{ post.title }}</h3>
+                                <h6>Category: {{ post.category }} | Published on {{ post.created_date }}</h6>
+                        </a>
                 </li>
                 {% endfor %}
                 </ul>
@@ -56,5 +56,24 @@
                 <strong>There are no posts present.</strong>
                 {% endif %}
             </div>
+        </div>
+
+        <!-- Index Only Main-Bottom -->
+        <div class="main-bottom">
+                <div class="main-bottom-image-box">
+                        <img class="main-bottom-image" src="{% static 'images/python.jpg'  %}" alt=""> 
+                </div>
+                <div class="main-bottom-text">
+                        <div class="main-bottom-text-header">
+                                <h1>A Little Bit About Us</h1>
+                        </div>
+                        <div class="main-bottom-text-content">
+                                <p>Welcome to the site. Feel free to search around and contact me</p>
+                                <p>Welcome to the site. Feel free to search around and contact me</p>
+                                <p>Welcome to the site. Feel free to search around and contact me</p>
+                                <p>Welcome to the site. Feel free to search around and contact me</p>
+                        </div>
+                </div>
+                
         </div>
 {% endblock %}
