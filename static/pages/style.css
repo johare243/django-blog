@@ -32,6 +32,19 @@ body {
         flex: 0.1;
 }
 
+.top-nav-left-box {
+        flex: 1;
+        display: flex;
+        max-height: 40px;
+        align-items: center;
+        justify-content: flex-start;
+}
+
+.top-nav-logo {
+        height: 40px;
+        margin: 0 0 0 20px;
+}
+
 .top-nav li a, .li a {
         text-decoration: none;
 }
@@ -251,6 +264,7 @@ body {
     font-size: 3em;
     padding: 30px;
     list-style: none;
+    background-image: linear-gradient(to right bottom, rgba(50,135,44, 0.3), rgba(247,135,44,0.4));
 }
 
 .posts {
@@ -267,6 +281,11 @@ body {
     margin: 30px;
 }
 
+.post:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.8);
+}
+
 .post a{
     text-decoration: none;
     color: #000;
@@ -281,7 +300,23 @@ body {
 
 .post-img {
     width: 100%;
+    padding: 15%;
 }
+
+.post-div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+}
+
+.post-div h1 {
+        text-align: center;
+}
+.post-div * {
+        width: 70%;
+}
+
 
 .flip-card {
         background-color: transparent;

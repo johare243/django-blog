@@ -9,12 +9,12 @@
 {% block header_block  %}
 {% endblock  %}
 {% block body_block %}
-        <div class="cat-div">
+        <div class="post-div">
         {% if post %}
-        <h1>{{ post.title }}</h1>
-        <h4>{{ post.text }}</h4>
+                <h1>{{ post.title }}</h1>
+                <h4>{{ post.text }}</h4>
         {% if post.markdown  %}
-        <p>{{ post.markdown|show_markdown|safe }}</p>
+                <p>{{ post.markdown|show_markdown|safe }}</p>
         {% endif  %}
         {% else %}
                     <p>Post goes here</p>
