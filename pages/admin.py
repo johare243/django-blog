@@ -4,6 +4,7 @@ from pages.models import Category, Post, UserProfile
 
 class PostAdmin(admin.ModelAdmin):
     fields=['category','title','views','markdown', 'text','post_image','summary']
+    populated_fields = {'slug':{'title',}}
 
 class CategoryAdmin(admin.ModelAdmin):
     populated_fields = {'slug':('name',)}

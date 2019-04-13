@@ -20,11 +20,12 @@
 <body>
     <nav class="top-nav">
             <div class="top-nav-left-box">
-                <li class="top-nav-li">
-                        <img class="top-nav-logo" src="{% static 'images/logo-black.png' %}" alt=""/>
-                </li>
-                <li class="top-nav-li"><a href="{% url 'index' %}">Index</a></li>
+                <!-- <li class="top-nav-li"> -->
+                        <!-- <img class="top-nav-logo" src="{% static 'images/logo-black.png' %}" alt=""/> -->
+                <!-- </li> -->
+                <li class="top-nav-li"><a href="{% url 'index' %}">Home</a></li>
                 <li class="top-nav-li"><a href="{% url 'about' %}">About</a></li>
+                <li class="top-nav-li"><a href="{% url 'about' %}">Contact</a></li>
             </div>
             {% if user.is_authenticated %}
                 Hello, {{ user.username }}

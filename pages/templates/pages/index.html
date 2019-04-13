@@ -19,6 +19,7 @@
                 {% for category in categories %}
                   <div class="flip-card">
                   <div class="flip-card-inner">
+                          <a href="{% url 'show_category' category.slug %}">
                           <div class="flip-card-front">
                             <li class="li-cat">
                             <a href="{% url 'show_category' category.slug %}">
@@ -27,10 +28,11 @@
                             </li>
                           </div>
                           <div class="flip-card-back" style="background-image: url('{{ MEDIA_URL }}/{{category.slug|lower}}.jpg');">
-                                    </a>
+                            </a>
                           </div>
                   </div>
                   </div>
+                            </a>
                 {% endfor %}
                     </ul>
                 {% endif %}
@@ -45,9 +47,9 @@
                 <ul class="ul-cat">
                 {% for post in posts %}
                 <li class="li-cat">
-                        <a href="{{ post.url }}">
-                                <h3>{{ post.title }}</h3>
-                                <h6>Category: {{ post.category }} | Published on {{ post.created_date }}</h6>
+                        <a class="post-index" href="category/{{ post.category.slug }}/{{ post.slug }}">
+                                <h2>{{ post.title }}</h2>
+                                <p class="post-meta">Category: {{ post.category }} | Published on {{ post.created_date }}</p>
                         </a>
                 </li>
                 {% endfor %}

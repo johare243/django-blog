@@ -17,7 +17,7 @@ def index(request):
 
     #grab top categories and posts from db
     category_list = Category.objects.order_by('-likes')
-    post_list = Post.objects.order_by('views')[:5]
+    post_list = Post.objects.order_by('-created_date')[:3]
 
     paginator = Paginator(category_list, 5)
     page = request.GET.get('page')
