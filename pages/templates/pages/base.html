@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 {% load staticfiles %}
 {% load pages_template_tags %}
@@ -12,50 +11,58 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8" >
 <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"> 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+
+{% block css_block  %}
 <link rel="stylesheet" href="{% static 'pages/style.css'  %}" type="text/css" charset="utf-8">
-
-
-
+{% endblock  %}
 </head>
+
 <body>
-    <nav class="top-nav">
-            <div class="top-nav-left-box">
-                <!-- <li class="top-nav-li"> -->
-                        <!-- <img class="top-nav-logo" src="{% static 'images/logo-black.png' %}" alt=""/> -->
-                <!-- </li> -->
-                <li class="top-nav-li"><a href="{% url 'index' %}">Home</a></li>
-                <li class="top-nav-li"><a href="{% url 'about' %}">About</a></li>
-                <li class="top-nav-li"><a href="{% url 'about' %}">Contact</a></li>
+    <nav class="top-nav" id="navbar">
+            <div class="top-nav-item top-nav-logo-container">
+                    <img id="top-nav-logo" src="{% static 'images/logo-white.png'  %}" alt=""/></img>
+                    <h1>HARE IT</h1>
             </div>
-            {% if user.is_authenticated %}
-                Hello, {{ user.username }}
-                    <li class="top-nav-li"><a href="{% url 'logout' %}">Logout</a></li>
-                    <li class="top-nav-li"><a href="{% url 'restricted' %}">Restricted</a></li>
-            {% else %}
-                    <li class="top-nav-li"><a href="{% url 'login' %}">Login</a></li>
-                    <li class="top-nav-li"><a href="{% url 'register' %}">Register</a></li>
-            {% endif %}
+            <div class="top-nav-item top-nav-left">
+                        <!-- <li class="top-nav-li"> -->
+                                <!-- <img class="top-nav-logo" src="{% static 'images/logo-black.png' %}" alt=""/> -->
+                        <!-- </li> -->
+                        <li class="top-nav-li"><a href="{% url 'index' %}">Home</a></li>
+                        <li class="top-nav-li"><a href="{% url 'index' %}">Categories</a></li>
+                        <li class="top-nav-li"><a href="{% url 'about' %}">About</a></li>
+                        <li class="top-nav-li"><a href="{% url 'about' %}">Contact</a></li>
+            </div>
+            <div class="top-nav-item top-nav-right">
+                    {% if user.is_authenticated %}
+                        Hello, {{ user.username }}
+                            <li class="top-nav-li"><a href="{% url 'logout' %}">Logout</a></li>
+                            <li class="top-nav-li"><a href="{% url 'restricted' %}">Restricted</a></li>
+                    {% else %}
+                            <li class="top-nav-li"><a href="{% url 'login' %}">Login</a></li>
+                            <span>/</span>
+                            <li class="top-nav-li"><a href="{% url 'register' %}">Register</a></li>
+                    {% endif %}
+            </div>
     </nav>
-    {% block header_block  %}
+
+    {% block header_block %}
         <header class="header">
-                <div class="logo-box">
-                        <img class="logo" src="{% static 'images/logo-white.png' %}" alt=""/>
-                </div>
+                <!-- <div class="logo-box"> -->
+                <!--         <img class="logo" src="{% static 'images/logo-white.png' %}" alt=""/> -->
+                <!-- </div> -->
                 <div class="text-box">
                         <h1 class="heading-primary">
-                                <span class="heading-primary-main">Hare IT</span>
+                                <span class="heading-primary-main">BLOG</span>
                                 <span class="heading-primary-sub">Explore RHEL, Django/Python, and More</span>
                         </h1>
                                 <a id="header-btn" class='btn btn-white' href="#">View Categories</a>
                 </div>
         </header>
-                {% endblock %}
-        <div id="main">
+    {% endblock %}
                 {% block body_block %}
                     This is the default content.
                 {% endblock %}
         <hr>
-        </div>
         <!-- <div id="sidebar"> -->
         <!--         {% block sidebar_block %} -->
         <!--                 {% get_category_list category %} -->

@@ -1,0 +1,5 @@
+.main-mid {
+        display: inline-block;
+        flex-direction: row;
+        border-box: 1px red solid;
+}

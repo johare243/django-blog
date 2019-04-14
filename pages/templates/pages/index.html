@@ -1,6 +1,6 @@
-
 {% extends 'pages/base.html' %}
 {% load staticfiles %}
+
 
 {% block title_block %}
     {{category.name}}
@@ -8,55 +8,63 @@
 
 {% block body_block %}
         <!-- <p>Visits: {{ visits }}</p> -->
-        <div id="main-categories" class="main-container">
-            <div>
-            <div class="main-header">
-                <h3>Top Categories</h3>
-            </div>
-            <hr>
-                {% if categories %}
+        <div class="main-mid-container">
+        <div class="main-mid">
+            <div class="main-items main-cats-container">
+                    <div class="main-header">
+                        <h3>Top Categories</h3>
+                    </div>
+                    <div class="main-cats">
+                    {% if categories %}
                     <ul class="ul-cat">
-                {% for category in categories %}
-                  <div class="flip-card">
-                  <div class="flip-card-inner">
+                    {% for category in categories %}
+                    <div class="cat">
+                            
                           <a href="{% url 'show_category' category.slug %}">
-                          <div class="flip-card-front">
-                            <li class="li-cat">
-                            <a href="{% url 'show_category' category.slug %}">
-                                    <img class="flip-card-bg" src="" alt=""/>
-                                {{ category.name|upper }}
-                            </li>
+                          <div class="flip-card">
+                                  <div class="flip-card-inner">
+                                          <a href="{% url 'show_category' category.slug %}">
+                                          <div class="flip-card-front">
+                                                  <li class="li-cat">
+                                                            <img class="flip-card-bg" src="" alt=""/>
+                                                        {{ category.name|upper }}
+                                                  </li>
+                                          </div>
+                                          <div class="flip-card-back" style="background-image: url('{{ MEDIA_URL }}/{{category.slug|lower}}.jpg');">
+                                          </div>
+                                  </div>
                           </div>
-                          <div class="flip-card-back" style="background-image: url('{{ MEDIA_URL }}/{{category.slug|lower}}.jpg');">
-                            </a>
-                          </div>
-                  </div>
-                  </div>
-                            </a>
-                {% endfor %}
+                          </a>
+                    </div>
+                     {% endfor %}
                     </ul>
-                {% endif %}
-
+                     {% endif %}
+                    </div>
             </div>
-            <div>
-            <div class="main-header">
-                <h3>Most Recent Posts</h3>
             </div>
-            <hr>
-                {% if posts %}
-                <ul class="ul-cat">
-                {% for post in posts %}
-                <li class="li-cat">
+            <!-- main-posts -->
+            <div class="main-items main-posts-container">
+                    <div class="main-header">
+                        <h3>Most Recent Posts</h3>
+                    </div>
+                    <div class="main-posts">
+                            
+                        {% if posts %}
+                        <ul class="ul-cat">
+                        {% for post in posts %}
                         <a class="post-index" href="category/{{ post.category.slug }}/{{ post.slug }}">
-                                <h2>{{ post.title }}</h2>
-                                <p class="post-meta">Category: {{ post.category }} | Published on {{ post.created_date }}</p>
-                        </a>
-                </li>
-                {% endfor %}
-                </ul>
-                {% else %}
-                <strong>There are no posts present.</strong>
-                {% endif %}
+                        <li class="li-cat">
+                                        <h2>{{ post.title }}</h2>
+                                        <p class="post-meta">Category: {{ post.category }} | Published on {{ post.created_date }}</p>
+                                </a>
+                        </li>
+                        {% endfor %}
+                        </ul>
+                        {% else %}
+                        <strong>There are no posts present.</strong>
+                        {% endif %}
+            <!-- end main-posts -->
+                  </div>
             </div>
         </div>
 
@@ -70,9 +78,7 @@
                                 <h1>A Little Bit About Us</h1>
                         </div>
                         <div class="main-bottom-text-content">
-                                <p>Welcome to the site. Feel free to search around and contact me</p>
-                                <p>Welcome to the site. Feel free to search around and contact me</p>
-                                <p>Welcome to the site. Feel free to search around and contact me</p>
+                                <p>This is an information technology blog covering many different aspects of IT. From Red Hat Enterprise Linux to Python Development using Django framework, we have it all</p>
                                 <p>Welcome to the site. Feel free to search around and contact me</p>
                         </div>
                 </div>
