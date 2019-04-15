@@ -133,4 +133,3 @@ MEDIA_URL = '/media/'
 LOGIN_URL = 'pages/login/'
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '@in0)si=w_w^!*n%$m)b_6_s&ky1kkl9dn*r#po-8-_24kej*m'
