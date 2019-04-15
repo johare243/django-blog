@@ -57,11 +57,11 @@
                                   <div class="flip-card-inner">
                                           <div class="flip-card-front">
                                                   <li class="li-cat">
-                                                            <img class="flip-card-bg" src="" alt=""/>
+                                                          <img class="flip-card-bg" src="" alt=""/>
                                                             <h2>{{ post.title }}</h2>
                                                   </li>
                                           </div>
-                                          <div class="flip-card-back" style="background-image: url('{{ MEDIA_URL }}/{{category.slug|lower}}.jpg');">
+                                          <div class="flip-card-back" style="background-image: url('{{ MEDIA_URL }}{{post.post_image}}');">
                                           <p class="post-meta">Category: {{ post.category }} | Published on {{ post.created_date }}</p>
                                           </div>
                                   </div>

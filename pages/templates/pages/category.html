@@ -8,33 +8,43 @@
 {% block header_block  %}
 {% endblock  %}
 {% block body_block %}
-        <div class="cat-div">
+        <div class="cat-name-container">
         {% if category %}
-                <h1 class='cat-name'>{{ category.name }}</h1>
+                <h1 style="background-size: 80%; background-image: url('{{ MEDIA_URL }}/{{category.slug|lower}}.jpg');" class='cat-name'>{{ category.name }}</h1>
                 {% if posts %}
                       <ul class="posts">
                         {% for post in posts %}
-                                <li class='post'>
-                                        <a id="post-title" href="{{ post.slug }}">{{ post.title }}</a>
+                                <li class="post-container">
                                     <a href="{{ post.slug }}">
-                                    <p>Published: {{ post.created_date }}</p>
-                                    <br>
-                                    <img class="post-img" src="{{ MEDIA_URL }}{{ post.post_image }}" alt="Post image"/>
-                                    <hr>
-                                    {% if post.summary %}
-                                    <p>{{ post.summary }}</p></a>
-                                    {% endif  %}
+                                    <div class="post">
+                                            <!-- <div> -->
+                                                    <p class="post-title">{{ post.title }}</p>
+                                            <!-- </div> -->
+                                            <!-- <div> -->
+                                                    <p>Published: {{ post.created_date }}</p>
+                                                    <br>
+                                            <!-- </div> -->
+                                            <!-- <div> -->
+                                                    <img class="post-img" src="{{ MEDIA_URL }}{{ post.post_image }}" alt="Post image"/>
+                                                    <hr>
+                                            <!-- </div> -->
+                                            <!-- <div> -->
+                                                    {% if post.summary %}
+                                                            <p class="post-summary">{{ post.summary }}</p></a>
+                                                    {% endif  %}
+                                            <!-- </div> -->
+                                    </div>
                                 </li>
                         {% endfor %}
                       </ul>
                 {% else %}
                         <strong>No posts for this category. </strong>
                 {% endif %}
-                {% if user.is_authenticated %}
-                    <a href="{% url 'add_post' category.slug %}">Add a post</a>
-                {% else %}
-                    <p>Sign in to add a category</p>
-                {% endif %}
+                <!-- {% if user.is_authenticated %} -->
+                <!--     <a href="{% url 'add_post' category.slug %}">Add a post</a> -->
+                <!-- {% else %} -->
+                <!--     <p>Sign in to add a category</p> -->
+                <!-- {% endif %} -->
         {% endif %}
         </div>
 {% endblock %}

@@ -9,15 +9,20 @@
 {% block header_block  %}
 {% endblock  %}
 {% block body_block %}
-        <div class="post-div">
+        <div class="post-content-container">
+                <h1 style="background-size: 80%; background-image: url('{{ MEDIA_URL }}/{{post.post_image}}');" class='cat-name'>{{ post.title }}</h1>
         {% if post %}
-                <h1>{{ post.title }}</h1>
-                <h4>{{ post.text }}</h4>
+        <div class="post-content">
+                
+                <h4 class="post-text">{{ post.text }}</h4>
         {% if post.markdown  %}
-                <p>{{ post.markdown|show_markdown|safe }}</p>
+                <p class="post-markdown">{{ post.markdown|show_markdown|safe }}</p>
         {% endif  %}
         {% else %}
                     <p>Post goes here</p>
         {% endif %}
         </div>
+        </div>
 {% endblock %}
+{% block footer_block  %}
+{% endblock  %}
