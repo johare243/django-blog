@@ -19,8 +19,6 @@
                     <ul class="ul-cat">
                     {% for category in categories %}
                     <div class="cat">
-                            
-                          <a href="{% url 'show_category' category.slug %}">
                           <div class="flip-card">
                                   <div class="flip-card-inner">
                                           <a href="{% url 'show_category' category.slug %}">
@@ -45,19 +43,32 @@
             <!-- main-posts -->
             <div class="main-items main-posts-container">
                     <div class="main-header">
-                        <h3>Most Recent Posts</h3>
+                        <h3>Recent Posts</h3>
                     </div>
                     <div class="main-posts">
                             
                         {% if posts %}
                         <ul class="ul-cat">
                         {% for post in posts %}
-                        <a class="post-index" href="category/{{ post.category.slug }}/{{ post.slug }}">
-                        <li class="li-cat">
-                                        <h2>{{ post.title }}</h2>
-                                        <p class="post-meta">Category: {{ post.category }} | Published on {{ post.created_date }}</p>
-                                </a>
-                        </li>
+<!-- 000 -->
+
+                          <a href="category/{{ post.category.slug }}/{{ post.slug }}">
+                          <div class="flip-card">
+                                  <div class="flip-card-inner">
+                                          <div class="flip-card-front">
+                                                  <li class="li-cat">
+                                                            <img class="flip-card-bg" src="" alt=""/>
+                                                            <h2>{{ post.title }}</h2>
+                                                  </li>
+                                          </div>
+                                          <div class="flip-card-back" style="background-image: url('{{ MEDIA_URL }}/{{category.slug|lower}}.jpg');">
+                                          <p class="post-meta">Category: {{ post.category }} | Published on {{ post.created_date }}</p>
+                                          </div>
+                                  </div>
+                          </div>
+                          </a>
+<!-- 000 -->
+
                         {% endfor %}
                         </ul>
                         {% else %}
@@ -71,15 +82,14 @@
         <!-- Index Only Main-Bottom -->
         <div class="main-bottom">
                 <div class="main-bottom-image-box">
-                        <img class="main-bottom-image" src="{% static 'images/python.jpg'  %}" alt=""> 
+                        <img class="main-bottom-image" src="{% static 'images/upward-stocks.jpg'  %}" alt=""> 
                 </div>
                 <div class="main-bottom-text">
                         <div class="main-bottom-text-header">
-                                <h1>A Little Bit About Us</h1>
+                                <h1>FROM 0 TO 1</h1>
                         </div>
                         <div class="main-bottom-text-content">
-                                <p>This is an information technology blog covering many different aspects of IT. From Red Hat Enterprise Linux to Python Development using Django framework, we have it all</p>
-                                <p>Welcome to the site. Feel free to search around and contact me</p>
+                                <p>While it may take some time for some of us to choose a path, we aim to expedite the process by covering a wide variety of IT topics. From web development focusing on Django, Python, JavaScript, HTML5, CSS3, and jQuery, to system administration covering RHCSA and RHCE concepts, to high-level cyber security concepts, including summaries of NIST documents, we've got you covered.</p>
                         </div>
                 </div>
                 

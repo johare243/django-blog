@@ -300,6 +300,7 @@ body {
 
 .main-header * {
         font-size: 2rem;
+        letter-spacing: 2px;
         color: white;
         border-bottom: 1px solid red;
         margin-top: -30px;
@@ -309,7 +310,7 @@ body {
 .main-items * {
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
+        /* justify-content: flex-start; */
         align-items: center;
 }
 
@@ -327,7 +328,7 @@ body {
 .main-mid {
         align-items: center;
         justify-content: space-around;
-        flex: 0.9;
+        flex: 0.5;
 } 
 
 /* } */
@@ -345,6 +346,7 @@ body {
     flex-wrap: wrap;
     justify-content: space-around;
 }
+
 .post {
     text-align: center;
     background-color: #e3e3e3;
@@ -402,11 +404,15 @@ body {
         color: white;
 }
 
+.cat {
+        /* display: flex; */
+        /* border: 1px red solid; */
+}
 .flip-card {
         background-color: transparent;
         color: white;
-        width: 200px;
-        height: 150px;
+        width: 35vw;
+        height: 20vh;
         /* border: 1px solid #f1f1f1; */
         perspective: 1000px;
         margin: 10px 0;
@@ -465,18 +471,19 @@ body {
 }
 
 .main-bottom {
-        display: flex;
-        height: 75vh;
+        display: inline-flex;
+        /* max-height: 75vh; */
         justify-content: center;
         align-items: center;
         background-image: linear-gradient(to left bottom, rgba(50,235,44, 0.4), rgba(30,235,30,0.7));
         margin: 20px 0;
+        padding: 5%;
 }
 
 .main-bottom-image-box {
         /* border: 1px solid red; */
         flex: 1;
-        /* margin: 10px; */
+        margin: 10px;
 }
 
 .main-bottom-image {
@@ -486,28 +493,41 @@ body {
 
 .main-bottom-text {
         flex: 1;
-        display: flex;
+        display: inline-flex;
         font-size: 1.2em;
         flex-direction: column;
-        height: 100%;
+        width: 90%;
         align-items: center;
+        /* border: 1px solid blue; */
+        flex-basis: 0;
 }
 
 .main-bottom-text-header {
-        flex: 1;
+        flex: 0.4;
         display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 1.4em;
+        justify-content: space-around;
+        align-items: flex-start;
+        border-bottom: 1px solid red;
+        margin-bottom: 10%;
+        letter-spacing: 3px;
 }
 
 .main-bottom-text-header h1 {
-        border-bottom: 1px solid #050505;
+        font-size: 1.5em;
+        color: black;
 }
 
 
 .main-bottom-text-content {
-        flex: 1;
+        display: flex;
+        flex-direction: column;
+}
+
+
+.main-bottom-text-content * {
+        font-size: 0.8rem;
+        max-width: 100%;
+        max-height: 100%;
 }
 
 #footer {
