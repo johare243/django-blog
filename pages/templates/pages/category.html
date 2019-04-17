@@ -9,37 +9,31 @@
 {% endblock  %}
 {% block body_block %}
         <div class="cat-name-container">
+        <h1 style="background-size: 80%; background-image: url('{{ MEDIA_URL }}/{{category.slug|lower}}.jpg');" class='cat-name'>{{ category.name }}</h1>
+        </div>
         {% if category %}
-                <h1 style="background-size: 80%; background-image: url('{{ MEDIA_URL }}/{{category.slug|lower}}.jpg');" class='cat-name'>{{ category.name }}</h1>
                 {% if posts %}
                       <ul class="posts">
-                        {% for post in posts %}
-                                <li class="post-container">
-                                    <a href="{{ post.slug }}">
-                                    <div class="post">
-                                            <!-- <div> -->
-                                                    <p class="post-title">{{ post.title }}</p>
-                                            <!-- </div> -->
-                                            <!-- <div> -->
-                                                    <p>Published: {{ post.created_date }}</p>
-                                                    <br>
-                                            <!-- </div> -->
-                                            <!-- <div> -->
-                                                    <img class="post-img" src="{{ MEDIA_URL }}{{ post.post_image }}" alt="Post image"/>
-                                                    <hr>
-                                            <!-- </div> -->
-                                            <!-- <div> -->
-                                                    {% if post.summary %}
-                                                            <p class="post-summary">{{ post.summary }}</p></a>
-                                                    {% endif  %}
-                                            <!-- </div> -->
-                                    </div>
-                                </li>
-                        {% endfor %}
+                {% for post in posts %}
+
+                    <a href="{{ post.slug }}">
+                        <li class="post">
+                                <div class="post-left">
+                                            <p class="post-title">{{ post.title }}</p>
+                                            <p class="post-meta">{{ post.created_date }}</p>
+                                </div>
+                                <div class="post-right">
+                                            <img class="post-img" src="{{ MEDIA_URL }}{{ post.post_image }}" alt="Post image"/>
+                                            <p class="post-summary">{{ post.summary }}</p></a>
+                                </div>
+                        </li>
+                    </a>
+                {% endfor %}
                       </ul>
                 {% else %}
                         <strong>No posts for this category. </strong>
                 {% endif %}
+                </div>
                 <!-- {% if user.is_authenticated %} -->
                 <!--     <a href="{% url 'add_post' category.slug %}">Add a post</a> -->
                 <!-- {% else %} -->

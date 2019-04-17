@@ -61,8 +61,9 @@
                                                             <h2>{{ post.title }}</h2>
                                                   </li>
                                           </div>
-                                          <div class="flip-card-back" style="background-image: url('{{ MEDIA_URL }}{{post.post_image}}');">
-                                          <p class="post-meta">Category: {{ post.category }} | Published on {{ post.created_date }}</p>
+                                          <!-- <div class="flip-card-back" style="background-image: url('{{ MEDIA_URL }}{{post.post_image}}');"> -->
+                                          <div class="flip-card-back" style="">
+                                                  <p class="post-info">Category: {{ post.category }} | Published on {{ post.created_date }} | {{ post.summary }}</p>
                                           </div>
                                   </div>
                           </div>
